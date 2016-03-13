@@ -1,0 +1,37 @@
+﻿@model DepartmentEmployee.Core.Department
+
+@{
+    ViewBag.Title = "Detials";
+}
+<br />
+<h4 style="color:navy">Department : @Html.DisplayFor(model => model.Name)</h4>
+<br />
+<div>
+   
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>&nbsp;&nbsp;</th>
+            <th>Hire Date</th>
+        </tr>
+        @foreach(var emp in Model.Employees)
+        {
+            <tr>
+                <td>
+                    @emp.Name
+                </td>
+                <td>
+                   &nbsp;
+                </td>
+                <td>
+                    @emp.HireDate
+                </td>
+            </tr>
+            
+        }
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Create Employee", "Create","Employee", new { departmentId = Model.Id }, null) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

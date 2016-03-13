@@ -1,0 +1,23 @@
+﻿@model IEnumerable<DepartmentEmployee.Models.Department>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+@using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "get", InsertionMode = InsertionMode.Replace, UpdateTargetId = "updateDiv"  }))
+{
+    <input type="search" name="searchTerm" />
+    <input type="submit" value="Seach" />
+}
+
+<p>
+    @Html.ActionLink("Create New Department...", "Create")
+</p>
+<br />
+ 
+ 
+<br />  <hr />  
+<div id="updateDiv">
+
+   @Html.Partial("_Index", Model)
+</div>

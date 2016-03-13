@@ -1,0 +1,23 @@
+﻿@model IEnumerable<DepartmentEmployee.Models.Department>
+<br />  
+@ViewBag.msg 
+<br />  
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(item.Name, "Details", new { id = item.Id })
+            </td>
+
+        </tr>
+    }
+
+</table>
